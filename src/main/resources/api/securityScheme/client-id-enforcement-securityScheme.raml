@@ -1,0 +1,13 @@
+#%RAML 1.0 SecurityScheme
+description: This Api accepts 
+type: x-clientId_enforcement 
+describedBy:
+  headers:
+    client_id: 
+     type: string
+    client_secret:
+      type: string
+      
+  responses:
+   401: 
+     description: 401 UnAuthorized access

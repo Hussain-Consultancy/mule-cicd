@@ -1,0 +1,48 @@
+#%RAML 1.0
+title: worker-data-hub-api
+description: This API is to fetch workers data.
+mediaType: 
+- application/json
+version: v1
+protocols: [HTTP,HTTPS]
+baseUri: http://worker-data-api/api/v1
+
+traits: 
+  errorresponse: !include traits/errorResponse.raml
+
+securitySchemes:
+  clientId_enforcement: !include securityScheme/client-id-enforcement-securityScheme.raml
+
+securedBy:
+  - clientId_enforcement
+
+/fetchWorkerData:
+  is:
+    - errorresponse
+  get:
+    queryParameters:
+      worker_id:
+        description: Id of a worker is used to fetch details. 
+        type: string
+        required: false
+      employee_number:
+        description: Employee number of the worker to fetch details.
+        type: string
+        required: false
+      email:
+        description: email of the worker to fetch details.
+        type: string
+        required: false
+      fullname:
+        description: fullname of the worker to fetch details.
+        type: string
+        required: false
+      network_id:
+        description: network_id of worker to fetch details.
+        type: string
+        required: false
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: !include examples/response-payload.json

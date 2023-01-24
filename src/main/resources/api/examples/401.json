@@ -1,0 +1,5 @@
+{
+  "statusCode" : 401,
+  "errorType" : "Unauthorized access",
+  "message" : "the client request has not been completed because it lacks valid authentication credentials for the requested resource"
+}
